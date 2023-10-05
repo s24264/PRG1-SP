@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main(){
+  double a,b,c,d,e,f;//1,5,3,2,8,7
+    cout<<"podaj dane dla zmiennych";
+    cin>>a>>b>>c>>d>>e>>f;
+    cout<<"("<<a<<")x + ("<<b<<")y = "<<e<<endl;
+    cout<<"("<<c<<")x + ("<<d<<")y = "<<f<<"\n\n\n";
+    double wspolczynnik,wspolczynnikX,wspolczynnikY;
+    wspolczynnik=(a*d)-(b*c);
+    wspolczynnikX=(e*d)-(f*b);
+    wspolczynnikY=(a*f)-(c*e);
+
+    double x,y;
+    x=wspolczynnikX/wspolczynnik;
+    y=wspolczynnikY/wspolczynnik;
+    cout<<"x= "<<x<<" y= "<<y;
+  return 0;
+}
