@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main(){
+  int liczba;
+    cout<<"podaj liczbe ";
+    cin>>liczba;
+    while(liczba<0){cout<<"liczba powinna byc dodatnia. Spruboj jeszcze raz.";cin>>liczba;}
+    cout<<"reprezentacja osemkowa: "<<oct<<liczba<<endl;
+    cout<<"reprezentacja szesnastkowa: "<<hex<<liczba<<endl;
+    return 0;
+}
