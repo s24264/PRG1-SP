@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+int main(){
+  int liczba,i=0;
+    cout<<"podaj liczbe calkowita\n";
+    cin>>liczba;
+    if(liczba%3==0){cout<<"Pling";i++;}
+    if(liczba%5==0){cout<<"Plang";i++;}
+    if(liczba%7==0){cout<<"Plong";i++;}
+    if(i==0){cout<<liczba;}
+  return 0;
+}
