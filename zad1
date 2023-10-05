@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main(){
+  int cukierki;
+    int uczniowie;
+    cout<<"ile cukierkow=";
+    cin>>cukierki;
+    cout<<"ile uczniow=";
+    cin>>uczniowie;
+
+    int dlaj=cukierki%uczniowie;
+    cukierki=cukierki-dlaj;
+    int dlak= cukierki/uczniowie;
+    cout<<"kazdy uczen dostanie "<<dlak<<" cukierki\n";
+    cout<<"Dla Jasia zostanie "<<dlaj<<" cukierkow";
+  return 0;
+}
