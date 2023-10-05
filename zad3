@@ -1,0 +1,18 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+int main() {
+    double R,alfa;
+    cout<<"Podaj promien oraz rozwarcie kata alfa w stopniach";
+    cin>>R>>alfa;
+    while(R<0){cout<<"Promien nie moze byc liczba ujemna.\nSprubuj ponownie\n";cin>>R;}
+    while(alfa>180.0 || alfa<0){
+        cout<<"kat alfa powinien byc dodatni oraz mniejszy od 180 stopni.\nSprubuj ponownie.\n";
+        cin>>alfa;
+    }
+    double radian = (M_PI*alfa)/180;
+    double poleOdcinak=(R*R)/2*(radian-sin(alfa));
+    cout<<"Pole odcinka kolowego o promieniu "<<R<<" i kacie "<<alfa<<" stopni wynosi "<<poleOdcinak<<endl;
+    return 0;
+}
