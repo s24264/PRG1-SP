@@ -12,7 +12,7 @@ int main() {
         cin>>alfa;
     }
     double radian = (M_PI*alfa)/180;
-    double poleOdcinak=(R*R)/2*(radian-sin(alfa));
+    double poleOdcinak=(R*R)/2*(radian-sin(radian));
     cout<<"Pole odcinka kolowego o promieniu "<<R<<" i kacie "<<alfa<<" stopni wynosi "<<poleOdcinak<<endl;
     return 0;
 }
