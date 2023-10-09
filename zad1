@@ -7,7 +7,7 @@ int main(){
     cin>>cukierki;
     cout<<"ile uczniow=";
     cin>>uczniowie;
-
+    uczniowe=uczniowie-1;
     int dlaj=cukierki%uczniowie;
     cukierki=cukierki-dlaj;
     int dlak= cukierki/uczniowie;
