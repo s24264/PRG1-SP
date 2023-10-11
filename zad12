@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int p,q,wygrana=0;
+    bool premia=false;
+    bool gra = true;
+
+    while(gra) {
+        cout << "rzut pierwsza koscia\n";
+        cin >> p;
+        while (p > 6 || p <= 0) { cout << "sprobuj jeszcze raz\n"; }
+        cout << "rzut druga koscia\n";
+        cin >> q;
+        while (q > 6 || q <= 0) { cout << "sprobuj jeszcze raz\n"; }
+        if(p==5 && q==5){wygrana+=5;}
+        switch(q){
+            case 2:
+            case 4:
+            case 5: 
+                cout << "to jestem";
+                    
+                break;
+            case 1:
+            case 3:
+            case 6:    
+                cout;
+                break;
+        }
+    }
+    return 0;
+}
