@@ -7,7 +7,7 @@ int main() {
     cout<<"podaj ilosc przepracowanych godzin w tygodniu\n"<<;
     cin>>godziny;
     cout<<"a teraz kategoria od A-D \n";
-    cout>>kategoria;
+    cin>>kategoria;
     if(kategoria=="A"){
         for(int i=0;i<godziny;i++){
             if(i>40){portfel+=30;}
