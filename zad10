@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int a,b,nwp;
+    cin>>a>>b;
+    if(a<0 || b<0){cout<<"brak rozwiazania";return 1;}
+    int a1,b1;
+    b1=b;
+    a1=a;
+    while(a1!=b1){
+        if(a1>b1){
+            a1=a1-b1;
+        }else{b1=b1-a1;}
+    }
+    nwp=a1;
+    cout<<nwp;
+    return 0;
+}
