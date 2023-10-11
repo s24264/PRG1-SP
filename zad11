@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int godziny;
+    string kategoria;
+    double portfel;
+    cin>>godziny>>kategoria;
+    if(kategoria=="A"){
+        for(int i=0;i<godziny;i++){
+            if(i>40){portfel+=30;}
+            else{portfel+=15;}
+        }
+    }
+    else if(kategoria=="B"){
+        for(int i=0;i<godziny;i++){
+            if(i>40){portfel+=50;}
+            else{portfel+=25;}
+        }
+    }
+    else if(kategoria=="C"){
+        for(int i=0;i<godziny;i++){
+            if(i>40){portfel+=60;}
+            else{portfel+=30;}
+        }
+    }
+    else if(kategoria=="D"){
+        for(int i=0;i<godziny;i++){
+            if(i>40){portfel+=70;}
+            else{portfel+=35;}
+        }
+    }
+    cout<<"brutto "<<portfel<<"\n";
+    if (portfel<=700){portfel*=0.15;}
+    else if (portfel<=1200){portfel*=0.20;}
+    else if (portfel>1200){portfel*=0.25;}
+    cout<<"zarobione pieniadze w tygodniu "<<portfel;
+    return 0;
+}
