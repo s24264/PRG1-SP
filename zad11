@@ -2,35 +2,43 @@
 using namespace std;
 int main() {
     int godziny;
-    string kategoria;
+    char kategoria;
     double portfel;
-    cout<<"podaj ilosc przepracowanych godzin w tygodniu\n"<<;
+    cout<<"podaj ilosc przepracowanych godzin w tygodniu\n";
     cin>>godziny;
+    while(godziny<0){cout<<"godziny nie moga byc ujemne\n";}
     cout<<"a teraz kategoria od A-D \n";
     cin>>kategoria;
-    if(kategoria=="A"){
+    while(kategoria<65 || kategoria>68){cout<<"nie ma takiej kategori. sprobuj z duzych liter\n";}
+    switch(kategoria){
+        case 65:
         for(int i=0;i<godziny;i++){
             if(i>40){portfel+=30;}
             else{portfel+=15;}
         }
-    }
-    else if(kategoria=="B"){
+            break;
+
+        case 66:
         for(int i=0;i<godziny;i++){
             if(i>40){portfel+=50;}
             else{portfel+=25;}
         }
-    }
-    else if(kategoria=="C"){
+        break;
+
+        case 67:
         for(int i=0;i<godziny;i++){
             if(i>40){portfel+=60;}
             else{portfel+=30;}
         }
-    }
-    else if(kategoria=="D"){
+        break;
+
+        case 68:
         for(int i=0;i<godziny;i++){
             if(i>40){portfel+=70;}
             else{portfel+=35;}
         }
+        break;
+        default: return 0;
     }
     cout<<"brutto "<<portfel<<"\n";
     if (portfel<=700){portfel*=0.15;}
