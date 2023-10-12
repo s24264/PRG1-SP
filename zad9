@@ -1,0 +1,22 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+    int liczba,losowa;
+    bool gra=true;
+    srand((int) time(NULL));
+    losowa=rand() % 100+1;
+    cout<<"Zgadnij jaka liczba od 1-100 siedzi mi w glowie:";
+    while(gra){
+        cin>>liczba;
+        if(liczba-30>=losowa){cout<<"liczba jest za duza\n";}
+        else if(liczba-10>=losowa){cout<<"liczba jest lekutko za duza\n";}
+        else if(liczba+30<=losowa){cout<<"liczba jest za mala\n";}
+        else if(liczba+10<=losowa){cout<<"liczba jest lekutko za mala\n";}
+        else if(liczba>losowa){cout<<"jestes blisko, ale i tak za duza\n";}
+        else if(liczba<losowa){cout<<"jestes blisko, ale i tak za mala\n";}
+        else if(liczba==losowa){cout<<"Tak, to jest liczba "<<losowa;gra=false;}
+    }
+
+    return 0;
+}
