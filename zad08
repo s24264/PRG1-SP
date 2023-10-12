@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+int main() {
+    int choice;
+    double num1, num2, result;
+
+    while (true) {
+        while(1) {
+            cout << "Wybierz operacje:\n";
+            cout << "1. Dodawanie\n";
+            cout << "2. Odejmowanie\n";
+            cout << "3. Mnozenie\n";
+            cout << "4. Dzielenie\n";
+            cout << "0. Wyjscie\n";
+            cout << "Wybor: ";
+            cin >> choice;
+
+            if (choice == 0) {
+                cout << "Koniec programu kalkulatora.\n";
+                return 0;
+            } else if (choice < 1 || choice > 4) {
+                cout << "Nieprawidlowy wybor operacji. Sprobuj ponownie.\n";
+
+            }else break;
+        }
+
+        cout << "Podaj pierwsza liczbe: ";
+        cin >> num1;
+        cout << "Podaj druga liczbe: ";
+        cin >> num2;
+
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                cout << "Wynik dodawania: " << result << "\n\n\n";
+                break;
+            case 2:
+                result = num1 - num2;
+                cout << "Wynik odejmowania: " << result << "\n\n\n";
+                break;
+            case 3:
+                result = num1 * num2;
+                cout << "Wynik mnozenia: " << result << "\n\n\n";
+                break;
+            case 4:
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    cout << "Wynik dzielenia: " << result << "\n\n\n";
+                } else {
+                    cout << "Nie mozna dzielic przez zero!\n";
+                }
+                break;
+        }
+    }
+
+
+    return 0;
+}
