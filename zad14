@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+int main() {
+
+    int n;
+    int wybor=1;
+    while(true){
+        cout<<"wprowadz liczbe: ";
+        cin>>n;
+        while(n<0){cout<<"liczba ma byc naturalna. sprubuj jeszcze raz\n";cin>>n;}
+        for(int i=2;i<n;i++){
+            if(n%i==0){cout<<n<<" nie jest liczba pierwsza\n";break;}
+            else if(i==n-1){cout<<"jest liczba pierwsza\n";}
+        }
+        cout<<"chcesz dalej grac? wpisz 1=tak lub 0=nie:";
+        cin>>wybor;
+        if(wybor==0){return 0;}
+    }
+
+}
