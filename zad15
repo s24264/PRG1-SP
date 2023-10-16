@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+int main() {
+    int a;
+    string znak;
+    cout<<"podaj liczbe a potem znak\n";
+    cin>>a>>znak;
+    while(a<=0){cout<<"liczba nie moze byc ujemna. wpiszs ja ponownie\n";cin>>a;}
+    for(int i=0;i<a;i++){
+        for(int j=0;j<a-i;j++){
+            cout<<znak;
+        }
+        cout<<"\n";
+    }
+
+    return 0;
+}
