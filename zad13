@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int n;
+    int wybor=2;
+    bool gra= true;
+    while(gra) {
+        int suma = 0;
+        cin >> n;
+        int p = sqrt(n);
+        while (p > 1) {
+            while(n%p==0){
+                suma=suma+p;
+                int p1=n/p;
+                if(p1!=p){
+                    suma=suma+p1;
+                }else{p=p-1; break;}
+            }
+
+        }
+        suma=suma+1;
+        if(suma==n){cout<<n<<" JLD\n";}
+        else{cout<<n<<" NJLD\n";}
+        while (wybor>1 || wybor<0) {
+            cout << "chcesz dalej grac? napisz 1=tak lub 0=nie\n";
+            cin>>wybor;
+
+        }
+        if(wybor==1){gra=true;}
+        else{gra= false;}
+    }
+}
