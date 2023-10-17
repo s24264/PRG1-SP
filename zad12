@@ -1,31 +1,107 @@
 #include <iostream>
+
 using namespace std;
 int main() {
     int p,q,wygrana=0;
-    bool premia=false;
-    bool gra = true;
+    int choice;
+    
 
-    while(gra) {
+
+    while(true) {
         cout << "rzut pierwsza koscia\n";
+        
         cin >> p;
-        while (p > 6 || p <= 0) { cout << "sprobuj jeszcze raz\n"; }
+        while (p > 6 || p <= 0) { cout << "sprobuj jeszcze raz\n"; cin>>p;}
         cout << "rzut druga koscia\n";
+        
         cin >> q;
-        while (q > 6 || q <= 0) { cout << "sprobuj jeszcze raz\n"; }
-        if(p==5 && q==5){wygrana+=5;}
+        while (q > 6 || q <= 0) { cout << "sprobuj jeszcze raz\n";cin>>q; }
+        
         switch(q){
             case 2:
             case 4:
-            case 5: 
-                cout << "to jestem";
-                    
+            case 5:
+                if (p%2==0){
+                    wygrana=p+3*q;
+                }else{wygrana=min(p,q)+4;}
+
                 break;
             case 1:
             case 3:
-            case 6:    
-                cout;
+            case 6:
+                if(p%2==0){
+                    wygrana=2*q;
+                }else{
+                    if(p==q){wygrana=5*p+3;}
+                    else{wygrana=2*q+p;}
+                }
                 break;
         }
+        if(p==5 && q==5){wygrana+=5;}
+        cout<<"twoja wygrana wynosi "<<wygrana;
+        cout<<"\n\nchcesz dalej grac? wpisz 1-tak lub 0-nie.";
+        cin>>choice;
+        while(choice>1 || choice<0){
+            cout<<"ups! spruboj ponownie\n";
+            cin>>choice;
+        }
+        if(choice==0){return 0;}
+        system("cls");
     }
-    return 0;
+
+}
+/**************************************************************************************************************************************************/
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+    int p,q,wygrana;
+    int choice;
+
+
+    srand(time(NULL));
+    while(true) {
+        wygrana=0;
+        p=rand()%6+1;
+        cout << "rzut pierwsza koscia: "<<p<<"\n";
+
+        q=rand()%6+1;
+        cout << "rzut druga koscia: "<<q<<"\n";
+
+
+        
+        switch(q){
+            case 2:
+            case 4:
+            case 5:
+                if (p%2==0){
+                    wygrana=p+3*q;
+                }else{wygrana=min(p,q)+4;}
+
+                break;
+            case 1:
+            case 3:
+            case 6:
+                if(p%2==0){
+                    wygrana=2*q;
+                }else{
+                    if(p==q){wygrana=5*p+3;}
+                    else{wygrana=2*q+p;}
+                }
+                break;
+        }
+        if(p==5 && q==5){wygrana+=5;}
+        cout<<"twoja wygrana wynosi "<<wygrana;
+        cout<<"\nchcesz dalej grac? wpisz 1-tak lub 0-nie.";
+        cin>>choice;
+        while(choice>1 || choice<0){
+            cout<<"ups! spruboj ponownie\n";
+            cin>>choice;
+        }
+        system("cls");
+        if(choice==0){return 0;}
+        
+    }
+
 }
