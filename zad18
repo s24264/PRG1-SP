@@ -1,20 +1,27 @@
 #include <iostream>
 
 using namespace std;
-int main() {
-    int graczA,graczB;
 
-    cout<<"gracz A wyklada zetonow :";
-    cin>>graczA;
-    while(graczA<=0){cout<<"liczba nie moze byc ujemna :";cin>>graczA;}
-    cout<<"gracz B wyklada zetonow :";
-    cin>>graczB;
-    while(graczB<=0){cout<<"liczba nie moze byc ujemna :";cin>>graczB;}
-    while(graczA!=graczB){
-        if(graczA>graczB){graczA-=graczB;}
-        else{graczB-=graczA;}
+int main() {
+    int graczA, graczB;
+
+    cout << "gracz A wyklada zetonow :";
+    cin >> graczA;
+    while (graczA <= 0) {
+        cout << "liczba nie moze byc ujemna :";
+        cin >> graczA;
     }
-    cout<<graczA+graczB;
+    cout << "gracz B wyklada zetonow :";
+    cin >> graczB;
+    while (graczB <= 0) {
+        cout << "liczba nie moze byc ujemna :";
+        cin >> graczB;
+    }
+    while (graczA != graczB) {
+        if (graczA > graczB) { graczA -= graczB; }
+        else { graczB -= graczA; }
+    }
+    cout << graczA + graczB;
 
     return 0;
 }
