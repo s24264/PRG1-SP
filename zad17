@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    int a,b;
+    string znak;
+    cout<<"wpisz szerokosc :";
+    cin>>a;
+    while(a<=0){cout<<"liczba nie moze byc ujemna :";cin>>a;}
+    cout<<"wpisz wysokosc :";
+    cin>>b;
+    while(b<=0){cout<<"liczba nie moze byc ujemna :";cin>>b;}
+    cout<<"wprowadz budulec :";
+    cin>>znak;
+    for(int i=0;i<b;i++){
+        for(int j=0;j<a;j++){
+            if(i==0){cout<<znak;}
+            else if(i==b-1){cout<<znak;}
+            else if(j==0 || j==a-1){cout<<znak;}
+            else {cout<<" ";}
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
