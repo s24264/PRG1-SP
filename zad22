@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    int tab[12];
+    cout << "podaj kolejno liczby do tablicy 12-elementowej \n";
+    for (int i = 0; i < 12; i++) {
+        cout<<"tab["<<i<<"]"<<" =";
+        cin>>n;
+        tab[i]=n;
+    }
+    for(int i=0;i<12;i++){
+        for(int j=1;j<12-i;j++){
+            if(tab[j-1]>tab[j]){
+                swap(tab[j-1],tab[j]);
+            }
+        }
+    }
+    for(int i = 0;i<12;i++){
+        cout<<tab[i]<<" ";
+    }
+}
