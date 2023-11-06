@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int tab1[100][100], tab2[100][100], a, b, c, d;
+    cout << "podaj wymiary pierwszej macierzy\n";
+    cout << "wiersze :";
+    cin >> a;
+    cout << "kolumny :";
+    cin >> b;
+    cout << "podaj wymiary drugiej macierzy\n";
+    cout << "wiersze :";
+    cin >> c;
+    cout << "kolumny :";
+    cin >> d;
+    if (a != c || b != d || a<=0 || b<=0) {
+        cout << "BLAD!!! macierze musza byc takie same i nie moga byc ujemne";
+        return 0;
+    }
+    cout << "wpisujemy dla pierwszej macierzy :\n";
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < b; j++) {
+            cin >> tab1[i][j];
+        }
+    }
+    cout << "wpisujemy dla drugiej macierzy :\n";
+    for (int i = 0; i < c; i++) {
+        for (int j = 0; j < d; j++) {
+            cin >> tab2[i][j];
+        }
+    }
+    cout << "suma macierzy wynosi :\n";
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < b; j++) {
+            tab1[i][j] = tab1[i][j] + tab2[i][j];
+            cout << tab1[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
