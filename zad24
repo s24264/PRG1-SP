@@ -1,0 +1,23 @@
+#include <iostream>
+
+
+using namespace std;
+
+int main() {
+    char tab[30];
+    int length=0 ;
+    cin>>tab;
+
+
+    for(int i=0;i<sizeof(tab) ;i++){
+        if(tab[i]!=0){length++;}
+        else{break;}
+    }
+
+    for(int i=0;i<(length/2);i++){
+        if(tab[i]==tab[length-1-i]){}
+        else{cout<<"nie jest palingromem";return 0;}
+    }
+    cout<<"jest palingromem";
+    return 0;
+}
