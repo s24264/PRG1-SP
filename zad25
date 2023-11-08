@@ -1,0 +1,22 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int main() {
+
+    short zmienna = 213;
+    short* wskaznik= &zmienna;
+    cout<<"&zmienna= "<<zmienna<<endl;
+    cout<<"wskaznik= "<<wskaznik<<endl;
+
+    cout<<"Adres zmienna= "<< wskaznik<<endl;
+    cout<<"*wskaznik= "<<*wskaznik<<endl;
+
+    cout<<"zmienna= "<<zmienna<<endl;
+    *wskaznik=50;
+    cout<<"zmienna= "<<zmienna;
+
+    return 0;
+
+}
