@@ -9,7 +9,7 @@ int main() {
     cin>>tab;
 
 
-    for(int i=0;i<sizeof(tab) ;i++){
+    for(int i=0;i<size(tab) ;i++){
         if(tab[i]!=0){length++;}
         else{break;}
     }
