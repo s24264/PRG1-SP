@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+void funkcja(int &a,int &b);
+int main(){
+    int *wsk1,*wsk2,liczba1,liczba2;
+    cin>>liczba1>>liczba2;
+    wsk1=&liczba1;
+    wsk2=&liczba2;
+
+    cout<<"wsk1 :"<<*wsk1<<"\nwsk2 :"<<*wsk2<<endl;
+    funkcja(*wsk1,*wsk2);
+    cout<<"po dzialaniu funkcji\nwsk1 :"<<*wsk1<<"\nwsk2 :"<<*wsk2;
+}
+///////////////////funkcje///////////
+void funkcja(int &a, int &b){
+    if(b<a){
+        swap(a,b);
+    }
+}
