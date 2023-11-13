@@ -11,7 +11,7 @@ int main() {
     srand(time(NULL));
 
     for(int i=0;i<n;i++){
-        *tab=rand()%50;
+        *(tab+i)=rand()%50;
         suma+=*tab;
 //        cout<<*tab<<" suma = "<<suma<<endl;
 
