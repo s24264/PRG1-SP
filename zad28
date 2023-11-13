@@ -2,19 +2,22 @@
 
 using namespace std;
 
-int funkcja();
+int* funkcja();
 
 int main() {
     int *n,liczba;
     cin>>liczba;
     n=&liczba;
-    cout<<n;
-    *n = funkcja();
-    cout<<"\n"<<n;
+    cout<<*n;
+    n = funkcja();
+    cout<<"\n"<<*n;
 }
 
 /////////////////////////funkcje
-int funkcja() {
-    int inna=5;
+int* funkcja() {
+    int* inna;
+    int druga = 10;
+    inna = &druga;
+
     return inna;
 }
