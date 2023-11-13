@@ -10,7 +10,7 @@ int main() {
     cout<<"&zmienna= "<<zmienna<<endl;
     cout<<"wskaznik= "<<wskaznik<<endl;
 
-    cout<<"Adres zmienna= "<< wskaznik<<endl;
+    cout<<"Adres zmienna= "<< &zmienna<<endl;
     cout<<"*wskaznik= "<<*wskaznik<<endl;
 
     cout<<"zmienna= "<<zmienna<<endl;
