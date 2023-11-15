@@ -1,0 +1,114 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+void sredniaArytmetyczna(int tab[],int n);
+void liczbaWystapien(int tab[],int n);
+void liczbaNieParzystych(int tab[],int n);
+void minimum(int tab[],int n);
+void maksymalny(int tab[],int n);
+void sasiednie(int tab[],int n);
+void najczesciejWystepujacy(int tab[],int n);
+int main() {
+    int tab[100];
+    int n,a,b;
+    srand(time(NULL));
+
+    cout<<"podaj przedzial liczb losowych :";
+    cin>>a>>b;
+    while(a>b){
+        cout<<"Pierwsza liczba nie moze byc wieksza od drugiej.\n "
+        <<"Sprobuj jeszcze raz.";
+        cin>>a>>b;
+    }
+    cout<<"od : "<<a<<" do : "<<b;
+    cout<<" podaj rozmiar tablicy :";
+    cin>>n;
+    while(n<0){
+        cout<<"nie moze byc ujemna. sprobuj jeszcze raz :";
+        cin>>n;
+    }
+
+    for(int i=0;i<n;i++){
+        tab[i]=rand()%b+a;
+//        cout<<tab[i]<<" ";
+    }
+//    sredniaArytmetyczna(tab,n);
+//    liczbaWystapien(tab,n);
+//    liczbaNieParzystych(tab,n);
+//    minimum(tab,n);
+//    maksymalny(tab,n);
+//    sasiednie(tab,n);
+    najczesciejWystepujacy(tab,n);
+}
+void sredniaArytmetyczna(int tab[],int n){
+    double suma=0;
+    for(int i=0;i<n;i++){
+        suma+=tab[i];
+    }
+    suma=suma/n;
+    cout<<"\nsrednia arytmetyczna :"<<suma;
+}
+void liczbaWystapien(int tab[],int n){
+    int wystapienia=0,element;
+    cout<<"\nile razy wystepuje element :";
+    cin>>element;
+    for(int i=0;i<n;i++){
+        if(tab[i]==element){wystapienia++;}
+    }
+    cout<<"element wystepuje :"<<wystapienia<<" razy";
+}
+void liczbaNieParzystych(int tab[],int n){
+    int suma=0,wystapienia=0;
+    for(int i=0;i<n;i++){
+        if(tab[i]%2==1){
+            wystapienia++;
+            suma+=tab[i];
+        }
+    }
+    cout<<"\nwystapienia :"<<wystapienia<<" suma :"<<suma;
+}
+void minimum(int tab[],int n){
+    int min=tab[0],indeks;
+    for(int i=0;i<n;i++){
+        if(min>tab[i]){
+            min=tab[i];
+            indeks=i;
+        }
+    }
+    cout<<"\nminimalna :"<<min<<" ["<<indeks<<"]";
+}
+void maksymalny(int tab[],int n){
+    int max=tab[0],indeks;
+    for(int i=0;i<n;i++){
+        if(max<tab[i]){
+            max=tab[i];
+            indeks=i;
+        }
+    }
+    cout<<"\nmaksymalna :"<<max<<" ["<<indeks<<"]";
+}
+void sasiednie(int tab[],int n){
+    int sasiad1,sasiad2,suma=tab[0]+tab[1];
+    for(int i=0;i<n;i++){
+        if(i+1!=n) {
+            if(suma<tab[i]+tab[i+1]){
+                suma=tab[i]+tab[i+1];
+                sasiad1 = tab[i];
+                sasiad2 = tab[i + 1];
+            }
+        }
+    }
+    cout<<"para :"<<sasiad1<<" i "<<sasiad2<<" suma :"<<suma;
+
+}
+void najczesciejWystepujacy(int tab[],int n){
+    int wystepowanie=0;
+    int *tablica=new int[n];
+    for(;;){
+        for(;;){
+
+        }
+    }
+}
