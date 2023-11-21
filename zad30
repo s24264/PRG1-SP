@@ -3,13 +3,15 @@
 #include <cstdlib>
 
 using namespace std;
-void sredniaArytmetyczna(int tab[],int n);
-void liczbaWystapien(int tab[],int n);
-void liczbaNieParzystych(int tab[],int n);
-void minimum(int tab[],int n);
-void maksymalny(int tab[],int n);
+float sredniaArytmetyczna(int tab[],int n);
+int liczbaWystapien(int tab[],int n);
+int liczbaNieParzystych(int tab[],int n);
+int minimum(int tab[],int n);
+int maksymalny(int tab[],int n);
 void sasiednie(int tab[],int n);
-void najczesciejWystepujacy(int tab[],int n);
+int najczesciejWystepujacy(int tab[],int n);
+void przestawienie(int tab[],int n);
+void kopiowanie(int tab[],int tabB[],int n);
 int main() {
     int tab[100];
     int n,a,b;
@@ -19,12 +21,13 @@ int main() {
     cin>>a>>b;
     while(a>b){
         cout<<"Pierwsza liczba nie moze byc wieksza od drugiej.\n "
-        <<"Sprobuj jeszcze raz.";
+            <<"Sprobuj jeszcze raz.";
         cin>>a>>b;
     }
     cout<<"od : "<<a<<" do : "<<b;
     cout<<" podaj rozmiar tablicy :";
     cin>>n;
+    int *kopia = new int[n];
     while(n<0){
         cout<<"nie moze byc ujemna. sprobuj jeszcze raz :";
         cin>>n;
@@ -34,23 +37,31 @@ int main() {
         tab[i]=rand()%b+a;
 //        cout<<tab[i]<<" ";
     }
+    cout<<"\n";
 //    sredniaArytmetyczna(tab,n);
 //    liczbaWystapien(tab,n);
 //    liczbaNieParzystych(tab,n);
 //    minimum(tab,n);
 //    maksymalny(tab,n);
 //    sasiednie(tab,n);
-    najczesciejWystepujacy(tab,n);
+//    najczesciejWystepujacy(tab,n);
+//    przestawienie(tab,n);
+//    kopiowanie(tab,kopia,n);
+//    for(int i=0;i<n;i++){
+//        cout<<*(kopia+i)<<" ";
+//    }
+
 }
-void sredniaArytmetyczna(int tab[],int n){
-    double suma=0;
+float sredniaArytmetyczna(int tab[],int n){
+    float suma=0;
     for(int i=0;i<n;i++){
         suma+=tab[i];
     }
     suma=suma/n;
     cout<<"\nsrednia arytmetyczna :"<<suma;
+    return suma;
 }
-void liczbaWystapien(int tab[],int n){
+int liczbaWystapien(int tab[],int n){
     int wystapienia=0,element;
     cout<<"\nile razy wystepuje element :";
     cin>>element;
@@ -58,8 +69,9 @@ void liczbaWystapien(int tab[],int n){
         if(tab[i]==element){wystapienia++;}
     }
     cout<<"element wystepuje :"<<wystapienia<<" razy";
+    return wystapienia;
 }
-void liczbaNieParzystych(int tab[],int n){
+int liczbaNieParzystych(int tab[],int n){
     int suma=0,wystapienia=0;
     for(int i=0;i<n;i++){
         if(tab[i]%2==1){
@@ -68,8 +80,9 @@ void liczbaNieParzystych(int tab[],int n){
         }
     }
     cout<<"\nwystapienia :"<<wystapienia<<" suma :"<<suma;
+    return wystapienia ;
 }
-void minimum(int tab[],int n){
+int minimum(int tab[],int n){
     int min=tab[0],indeks;
     for(int i=0;i<n;i++){
         if(min>tab[i]){
@@ -78,8 +91,9 @@ void minimum(int tab[],int n){
         }
     }
     cout<<"\nminimalna :"<<min<<" ["<<indeks<<"]";
+    return min;
 }
-void maksymalny(int tab[],int n){
+int maksymalny(int tab[],int n){
     int max=tab[0],indeks;
     for(int i=0;i<n;i++){
         if(max<tab[i]){
@@ -88,6 +102,7 @@ void maksymalny(int tab[],int n){
         }
     }
     cout<<"\nmaksymalna :"<<max<<" ["<<indeks<<"]";
+    return max;
 }
 void sasiednie(int tab[],int n){
     int sasiad1,sasiad2,suma=tab[0]+tab[1];
@@ -103,12 +118,41 @@ void sasiednie(int tab[],int n){
     cout<<"para :"<<sasiad1<<" i "<<sasiad2<<" suma :"<<suma;
 
 }
-void najczesciejWystepujacy(int tab[],int n){
-    int wystepowanie=0;
-    int *tablica=new int[n];
-    for(;;){
-        for(;;){
-
+int najczesciejWystepujacy(int tab[],int n){
+    int wystepowanie=0,liczba;
+    int *tab2=new int[n];
+    for(int i=0;i<n;i++){
+        liczba=tab[i];
+        for(int j=0;j<n;j++){
+            if(tab[j]==liczba){
+                *(tab2+i)+=1;
+            }
         }
+    }
+    int max=*tab2;
+    for(int i=0;i<n;i++){
+        if(*(tab2+i)>max){max=*(tab2+i);wystepowanie=i;}
+    }
+    cout<<"najczesciej wystepujacy element :"<<tab[wystepowanie];
+    return tab[wystepowanie];
+}
+void przestawienie(int tab[],int n){
+    int wybor1,wybor2;
+    cout<<"jaka elementy chcialbys przestawic od :[1-"<<n<<"]";
+    cin>>wybor1>>wybor2;
+    while(wybor1==wybor2 || wybor1<1 || wybor1>n || wybor2<1 || wybor2>n){
+        cout<<"sprobuj jeszcze raz :";
+        cin>>wybor1>>wybor2;
+    }
+    wybor1--;
+    wybor2--;
+    for(int i=0;i<n;i++){cout<<tab[i]<<" ";}
+    cout<<endl;
+    swap(tab[wybor1],tab[wybor2]);
+    for(int i=0;i<n;i++){cout<<tab[i]<<" ";}
+}
+void kopiowanie(int tabA[],int tabB[],int n){
+    for(int i=0;i<n;i++){
+        tabB[i]=tabA[i];
     }
 }
