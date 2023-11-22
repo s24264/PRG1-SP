@@ -1,0 +1,37 @@
+#include <iostream>
+
+
+using namespace std;
+int is_sorted(int tab[],int n,char znak);
+int main() {
+    int n;
+    char znak;
+    cout<<"podaj rozmiar :";
+    cin>>n;
+    cout<<"zapytaj sie czy tablica jest posortowana rosnaco-r, lub malejaco-m :";
+    cin>>znak;
+    int *tab=new int[n];
+    for(int i=0;i<n;i++){
+        cin>>*(tab+i);
+    }
+    cout<<is_sorted(tab,n,znak);
+}
+int is_sorted(int tab[],int n,char znak){
+
+    if(znak=='r' ){
+        for(int i=0;i<n-1;i++){
+            if(tab[i]<=tab[i+1]){}
+            else{return 0;}
+        }
+        return 1;
+    }
+    else if(znak=='m'){
+        for(int i=0;i<n-1;i++){
+            if(tab[i]>=tab[i+1]){}
+            else{return 0;}
+        }
+        return 1;
+    }
+    else{return -1;}
+
+}
