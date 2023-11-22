@@ -1,0 +1,32 @@
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+void rysowanie(char znak,int rozmiar);
+int main() {
+    char znak;
+
+    cout<<"podaj znak :";
+    cin>>znak;
+
+    rysowanie(znak,5);
+
+}
+void rysowanie(char znak,int rozmiar){
+    char wybor;
+
+    for(int i=0,k=rozmiar*2;i<rozmiar*2;i++,k--){
+        for(int j=0;j<rozmiar;j++){
+            if(i==j){cout<<znak;}
+            else if(j+1==k){cout<<znak;}
+            else{cout<<" ";}
+        }
+        cout<<endl;
+    }
+
+    cout<<"czy chcialbys powiekszyc-\"+\" czy pomniejszyc-\"-\"?";
+    cin>>wybor;
+
+    if(wybor=='+'){ rysowanie(znak,++rozmiar);}
+    else if(wybor=='-'){ rysowanie(znak,--rozmiar);}
+}
