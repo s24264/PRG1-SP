@@ -1,0 +1,24 @@
+#include <iostream>
+
+
+using namespace std;
+auto iota(int a[],int n,int start,int i)->void;
+int main() {
+    int rozmiar,start;
+    cout<<"podaj rozmiar :";
+    cin>>rozmiar;
+    cout<<"od jakiej liczby ma sie zaczynac :";
+    cin>>start;
+    int *tab=new int[rozmiar];
+    iota(tab,rozmiar,start,0);
+    for(int i=0;i<rozmiar;i++){
+        cout<<*(tab+i)<<" ";
+    }
+}
+auto iota(int a[],int n,int start,int i)->void {
+    if(i<n) {
+        *(a + i) = start;
+        iota(a,n,++start,++i);
+    }
+
+}
