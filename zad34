@@ -1,0 +1,50 @@
+#include <iostream>
+
+
+using namespace std;
+void dec_to_n(int number,int base);
+int main() {
+    int number, base;
+
+    cout << "Podaj liczbe naturalna: ";
+    cin >> number;
+
+    cout << "Podaj podstawe systemu liczbowego (2-16): ";
+    cin >> base;
+
+    dec_to_n(number, base);
+
+}
+void dec_to_n(int number, int base) {
+    if (base < 2 || base > 16) {
+        cout << "BLAD: Nieobslugiwana podstawa systemu liczbowego.\n";
+        return;
+    }
+
+    if (number < 0) {
+        cout << "BLAD: Wprowadz liczbe naturalna.\n";
+        return;
+    }
+
+    string result = "";
+
+    while (number > 0) {
+        int remainder = number % base;
+
+        char digit;
+        if (remainder < 10) {
+            digit = '0' + remainder;
+        } else {
+            digit = 'A' + remainder - 10;
+        }
+
+        result = digit + result;
+        number /= base;
+    }
+
+    if (result.empty()) {
+        result = "0";
+    }
+
+    cout << "Liczba w systemie o podstawie " << base << ": " << result << endl;
+}
