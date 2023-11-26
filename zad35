@@ -1,5 +1,5 @@
 #include <iostream>
-#include <windows.h>
+#include <conio.h>
 
 using namespace std;
 void rysowanie(char znak,int rozmiar);
@@ -25,7 +25,8 @@ void rysowanie(char znak,int rozmiar){
     }
 
     cout<<"czy chcialbys powiekszyc-\"+\" czy pomniejszyc-\"-\"?";
-    cin>>wybor;
+    wybor=_getch();
+    cout<<endl;
 
     if(wybor=='+'){ rysowanie(znak,++rozmiar);}
     else if(wybor=='-'){ rysowanie(znak,--rozmiar);}
