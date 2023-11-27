@@ -12,6 +12,7 @@ void sasiednie(int tab[],int n);
 int najczesciejWystepujacy(int tab[],int n);
 void przestawienie(int tab[],int n);
 void kopiowanie(int tab[],int tabB[],int n);
+void pisz_tab(int A[], int n);
 int main() {
     int tab[100];
     int n,a,b;
@@ -27,17 +28,17 @@ int main() {
     cout<<"od : "<<a<<" do : "<<b;
     cout<<" podaj rozmiar tablicy :";
     cin>>n;
-    int *kopia = new int[n];
     while(n<0){
         cout<<"nie moze byc ujemna. sprobuj jeszcze raz :";
         cin>>n;
     }
+    int *kopia = new int[n];
 
     for(int i=0;i<n;i++){
         tab[i]=rand()%b+a;
-//        cout<<tab[i]<<" ";
     }
     cout<<"\n";
+//    pisz_tab(tab,n);
 //    sredniaArytmetyczna(tab,n);
 //    liczbaWystapien(tab,n);
 //    liczbaNieParzystych(tab,n);
@@ -154,5 +155,10 @@ void przestawienie(int tab[],int n){
 void kopiowanie(int tabA[],int tabB[],int n){
     for(int i=0;i<n;i++){
         tabB[i]=tabA[i];
+    }
+}
+void pisz_tab(int A[], int n){
+    for(int i=0;i<n;i++){
+        cout<<"["<<i<<"]=>"<<*(A+i)<<endl;
     }
 }
