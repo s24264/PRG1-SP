@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+#include <regex>
+
+using namespace std;
+
+
+int main() {
+    string haslo;
+    regex duzalitera("[[:upper:]]");
+    regex nakspecjalny("alnum");
+    while(true){
+        cout<<"wprowadz haslo :";
+        cin>>haslo;
+        if(haslo.length()>=8){
+            cout <<regex_search(haslo,duzalitera);
+        }
+
+    }
+}
