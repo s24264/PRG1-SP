@@ -13,15 +13,9 @@ int main() {
     while(true){
         cout<<"wprowadz haslo :";
         cin>>haslo;
-        if(haslo.length()>=8){
-            if(regex_search(haslo,duzalitera)){
-                if(regex_search(haslo,znakspecjalny)){
-                    if(regex_search(haslo,liczba)){
-                        cout<<"TAK! to jest silne haslo";
-                        return 0;
-                    }
-                }
-            }
+        if(haslo.length()>=8 && regex_search(haslo,duzalitera) && regex_search(haslo,znakspecjalny) && regex_search(haslo,liczba)){
+            cout<<"TAK! to jest silne haslo";
+            return 0;
         }
 
         cout<<"ZA SLABE! sprobuj jeszcze raz"<<endl;
