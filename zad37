@@ -1,1 +1,15 @@
+#include <iostream>
+#include <ctime>
 
+using namespace std;
+
+
+int main() {
+    srand(time(NULL));
+    int n;
+    cout<<"podaj liczbe rzutow :";
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cout<<rand()%6+1<<" ";
+    }
+}
