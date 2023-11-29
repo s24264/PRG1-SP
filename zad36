@@ -8,13 +8,22 @@ using namespace std;
 int main() {
     string haslo;
     regex duzalitera("[[:upper:]]");
-    regex nakspecjalny("alnum");
+    regex znakspecjalny("[[:punct:]]");
+    regex liczba("[[:d:]]");
     while(true){
         cout<<"wprowadz haslo :";
         cin>>haslo;
         if(haslo.length()>=8){
-            cout <<regex_search(haslo,duzalitera);
+            if(regex_search(haslo,duzalitera)){
+                if(regex_search(haslo,znakspecjalny)){
+                    if(regex_search(haslo,liczba)){
+                        cout<<"TAK! to jest silne haslo";
+                        return 0;
+                    }
+                }
+            }
         }
 
+        cout<<"ZA SLABE! sprobuj jeszcze raz"<<endl;
     }
 }
