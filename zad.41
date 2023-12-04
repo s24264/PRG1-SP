@@ -23,6 +23,7 @@ int main() {
     else if(dzien=="piatek"){cout<<"zostalo "<<zostalo(dni_tygodnia(piatek))<<" dni";}
     else if(dzien=="sobota"){cout<<"zostalo "<<zostalo(dni_tygodnia(sobota))<<" dni";}
     else if(dzien=="niedziela"){cout<<"zostalo "<<zostalo(dni_tygodnia(niedziela))<<" dni";}
+    else {cout<<"nie ma takiego dnia";}
 
 }
 int zostalo(int dni){
