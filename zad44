@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+class NowaKlasa{
+private:
+    int zmienna1=15;
+    int zmienna2=20;
+
+public:
+    void wypiszZmienne();
+};
+void NowaKlasa::wypiszZmienne(){
+    cout<<"zmienna1 = "<<zmienna1<<"\nzmienna2 = "<<zmienna2;
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+int main() {
+    NowaKlasa nowaKlasa;
+    nowaKlasa.wypiszZmienne();
+}
