@@ -16,7 +16,7 @@ int main() {
     }
     cout<<endl;
     wyswietl(kolejka);
-    cout<<"dodajemy - 5\n";
+    cout<<"\ndodajemy - 5\n";
     dodaj(kolejka,5);
     wyswietl(kolejka);
     cout<<endl;
@@ -62,6 +62,7 @@ int pobierz(int tab[]){
         return 0;
     }
     int x=tab[head];
+    tab[head]=0;
     if(head+1==wielkosc){
         head=0;
     }
@@ -72,7 +73,7 @@ int pobierz(int tab[]){
     return x;
 }
 void wyswietl(int tab[]){
-    for(int i=head;i<wielkosc;i++){
+    for(int i=0;i<wielkosc;i++){
         cout<<tab[i]<<", ";
     }
 }
