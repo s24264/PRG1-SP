@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+class NowaKlasa{
+private:
+    int zmienna1=15;
+    int zmienna2=20;
+public:
+    void wypiszZmienne();
+    void wypiszZmienna(int a);
+    int wypiszZmienna(int a,int b);
+};
+void NowaKlasa::wypiszZmienne(){
+    cout<<"cos tam pisze\n";
+}
+void NowaKlasa::wypiszZmienna(int a){
+    cout<<"pisze jedna zmienna : "<<a<<endl;
+}
+int NowaKlasa::wypiszZmienna(int a,int b){
+    cout<<"zwraca wartosc sumy a i b = ";
+    return a+b;
+}
+
+///////////////////////////////////////////////////////////////////
+
+int main() {
+    NowaKlasa nowaKlasa;
+    nowaKlasa.wypiszZmienne();
+    nowaKlasa.wypiszZmienna(6);
+    cout<<nowaKlasa.wypiszZmienna(6,8);
+}
