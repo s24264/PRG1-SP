@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Pracownik{
+private:
+    string imie;
+    string nazwisko;
+    string ulica;
+    string nrDomu;
+    string kodPocztowy;
+    string miejscowosc;
+public:
+    void pracownik(string imie,string nazwisko,string ulica, string nrDomu,string kodPocztowy,string miejscowosc){
+        this->imie=imie;
+        this->nazwisko=nazwisko;
+        this->ulica=ulica;
+        this->nrDomu=nrDomu;
+        this->kodPocztowy=kodPocztowy;
+        this->miejscowosc=miejscowosc;
+    }
+    void wizytowka();
+};
+void Pracownik::wizytowka() {
+    cout<<"----------------------------\n";
+    cout<<imie<<" "<<nazwisko<<endl;
+    cout<<"ul. "<<ulica<<" "<<nrDomu<<endl;
+    cout<<kodPocztowy<<" "<<miejscowosc<<endl;
+    cout<<"----------------------------";
+}
+
+///////////////////////////////////////////////////////////////////
+
+int main() {
+    Pracownik nowyPracownik;
+    nowyPracownik.pracownik("Jan","Kowalski","Koleczkowa","23/4","32-547","Gdynia");
+    nowyPracownik.wizytowka();
+}
