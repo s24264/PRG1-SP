@@ -1,53 +1,73 @@
 #include <iostream>
 
-
-
 using namespace std;
-int tail=0,head=0,wielkosc=10;
-void dodaj(int tab[],int x);
-int ilosc_elementow(int tab[]);
-int pobierz(int tab[]);
+int top=0,wielkosc=10;
+bool stackEmpty(int tab[]);
+void push(int tab[],int x);
+int pop(int tab[]);
 void wyswietl(int tab[]);
+int ilosc_elementow(int tab[]);
 int main() {
-    int *kolejka=new int[wielkosc];
-    int nowa;
+    int *stos = new int[wielkosc];
     for(int i=0;i<wielkosc;i++){
-        kolejka[i]=0;
+        stos[i]=0;
     }
-    cout<<endl;
-    wyswietl(kolejka);
-    cout<<"\ndodajemy - 5\n";
-    dodaj(kolejka,5);
-    wyswietl(kolejka);
-    cout<<endl;
-    dodaj(kolejka,10);
-    wyswietl(kolejka);
-    cout<<endl;
-    dodaj(kolejka,30);
-    wyswietl(kolejka);
-    cout<<endl;
-    cout<<"pobrana liczba : "<<pobierz(kolejka)<<endl;
-    wyswietl(kolejka);
-    cout<<endl;
-    dodaj(kolejka,13);
-    wyswietl(kolejka);
-    cout<<endl;
-    cout << "pobrana liczba : "<<pobierz(kolejka)<<endl;
-    wyswietl(kolejka);
-    cout<<endl;
-    dodaj(kolejka,23);
-    wyswietl(kolejka);
+    push(stos,5);
+    wyswietl(stos);
+    push(stos,19);
+    wyswietl(stos);
+    push(stos,6);
+    wyswietl(stos);
+    cout<<"pobrana liczba = "<<pop(stos)<<endl;
+    wyswietl(stos);
+    push(stos,9);
+    wyswietl(stos);
+    cout<<"pobrana liczba = "<<pop(stos)<<endl;
+    wyswietl(stos);
+    push(stos,4);
+    wyswietl(stos);
+    push(stos,8);
+    wyswietl(stos);
+    push(stos,27);
+    wyswietl(stos);
+    push(stos,35);
+    wyswietl(stos);
+    push(stos,2);
+    wyswietl(stos);
+    push(stos,7);
+    wyswietl(stos);
+    push(stos,8);
+    wyswietl(stos);
+    push(stos,17);
+    wyswietl(stos);
+    push(stos,12);
+    wyswietl(stos);
 
 }
-void dodaj(int tab[],int x){
-    if(ilosc_elementow(tab)==wielkosc){
-        cout<<"kolejka jest pelna";
-        return ;
+bool stackEmpty(int tab[]){
+    if(tab[top]==0){return true;}
+    else{return false;}
+}
+void push(int tab[],int x){
+    if(ilosc_elementow(tab)==10){
+        cout<<"kolejka jest pelna\n";
+        return;
     }
-    tab[tail]=x;
-    if(tail+1==wielkosc){
-        tail=0;
-    }else{tail=tail+1;}
+    tab[top] = x;
+    top++;
+
+}
+int pop(int tab[]){
+    if(!stackEmpty(tab)){
+        cout<<"nie ma";
+        return 0;
+    }else{top=top-1;return tab[top];}
+}
+void wyswietl(int tab[]){
+    for(int i=0;i<wielkosc;i++){
+        cout<<tab[i]<<", ";
+    }
+    cout<<endl;
 }
 int ilosc_elementow(int tab[]){
     int length=0;
@@ -55,25 +75,4 @@ int ilosc_elementow(int tab[]){
         if(tab[i]!=0){length++;}
     }
     return length;
-}
-int pobierz(int tab[]){
-    if(ilosc_elementow(tab)==0){
-        cout<<"nie mozna pobrac";
-        return 0;
-    }
-    int x=tab[head];
-    tab[head]=0;
-    if(head+1==wielkosc){
-        head=0;
-    }
-    else{
-        head=head+1;
-
-    }
-    return x;
-}
-void wyswietl(int tab[]){
-    for(int i=0;i<wielkosc;i++){
-        cout<<tab[i]<<", ";
-    }
 }
