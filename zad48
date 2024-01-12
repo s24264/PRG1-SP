@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+class Uczen{
+private:
+    string imie;
+    string nazwisko;
+    double liczba_pytan=0;
+    double poprawne=-1;
+public:
+    void wczytajDane();
+    double obliczPoprawne();
+    void wyswietl();
+};
+
+void Uczen::wczytajDane() {
+    cout<<"podaj imie ";
+    cin>>imie;
+    cout<<"podaj nazwisko ";
+    cin>>nazwisko;
+    while(liczba_pytan<=0) {
+        cout << "podaj liczbe pytan ";
+        cin>>liczba_pytan;
+    }
+    while(poprawne<0 || poprawne>liczba_pytan) {
+        cout << "podaj liczbe poprawnych odpowiedzi ";
+        cin>>poprawne;
+    }
+}
+double Uczen::obliczPoprawne() {
+    double procent;
+    procent=poprawne/liczba_pytan;
+    return procent*100;
+}
+void Uczen::wyswietl() {
+    cout<<"Uczen :"<<imie<<" "<<nazwisko<<endl;
+    cout<<"liczba pytan :"<<liczba_pytan<<endl;
+    cout<<"poprawnych :"<<poprawne<<endl;
+    cout<<"procent oceny :"<<fixed<<setprecision(0)<<obliczPoprawne()<<"%"<<endl;
+}
+
+//////////////////////////////////////////////////////////////
+int main() {
+Uczen uczen;
+uczen.wczytajDane();
+uczen.obliczPoprawne();
+uczen.wyswietl();
+}
