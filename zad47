@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Rachunek{
+private:
+    string data;
+    double wartosc_netto;
+    double wartosc_brutto;
+    double podatek;
+public:
+    void wczytajDane();
+    void obliczPodatekBrutto();
+    void wyswietl();
+};
+
+void Rachunek::wczytajDane() {
+    cout << "Podaj date (np. 2023-01-01): ";
+    cin >> data;
+
+    cout << "Podaj wartosc netto: ";
+    cin >> wartosc_netto;
+}
+void Rachunek::obliczPodatekBrutto() {
+    double stawkaPodatku = 0.23;
+    podatek = wartosc_netto * stawkaPodatku;
+    wartosc_brutto = wartosc_netto + podatek;
+}
+void Rachunek::wyswietl() {
+    cout << "\nDane rachunku:\n";
+    cout << "Data: " << data << endl;
+    cout << "Wartosc netto: " << wartosc_netto << endl;
+    cout << "Podatek (23%): " << podatek << endl;
+    cout << "Wartosc brutto: " << wartosc_brutto << endl;
+}
+//////////////////////////////////////////////////////////////
+int main() {
+    Rachunek rachunek;
+    rachunek.wczytajDane();
+    rachunek.obliczPodatekBrutto();
+    rachunek.wyswietl();
+}
