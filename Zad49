@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+class Pojazd{
+protected:
+    int liczba_kol;
+    string marka;
+public:
+    Pojazd(){
+        liczba_kol=0;
+        marka="brak";
+    }
+    Pojazd(int liczba_kol,string marka){
+        this->liczba_kol=liczba_kol;
+        this->marka=marka;
+    }
+    void opis(){
+        cout<<"ogolny opis\n";
+    }
+    virtual void odglos(){
+        cout<<"wydaje jakis dzwiek\n";
+    }
+};
+class Auto : public Pojazd{
+private :
+    int liczba_drzwi;
+public:
+    Auto(){
+        liczba_kol=4;
+        marka="brak";
+        liczba_drzwi=4;
+    }
+    Auto( int liczba_drzwi){
+        this->marka=marka;
+        this->liczba_kol=liczba_kol;
+        this->liczba_drzwi=liczba_drzwi;
+    }
+    void opis(){
+        cout<<"auto marki "<<marka<<" z "<<liczba_kol<<" kolami i "<<liczba_drzwi<<" drzwiami";
+    }
+    void odglos() override{
+        cout<<"\nbrummbrumm";
+    }
+};
+class Motor : public Pojazd{
+private:
+    string silnik;
+public:
+    Motor(){
+        liczba_kol=2;
+        marka="brak";
+        silnik="V4";
+    }
+    Motor(int liczba_kol,string marka,string silnik){
+        this->liczba_kol=liczba_kol;
+        this->marka=marka;
+        this->silnik=silnik;
+    }
+    void opis(){
+        cout<<"\nmotor marki "<<marka<<" z "<<liczba_kol<<" kolami i silnikiem "<<silnik;
+    }
+    void odglos() override{
+        cout<<"\npurpurpurpur";
+    }
+};
+
+//////////////////////////////////////////////////////////////
+int main() {
+    Auto anAuto;
+    anAuto.opis();
+    anAuto.odglos();
+    Motor motor(2,"pejot","V12");
+    motor.opis();
+    motor.odglos();
+}
