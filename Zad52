@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+class Klasa1{
+private:
+    int rok_urodzenia;
+    string imie;
+    string nazwisko;
+public:
+    Klasa1(int rok_urodzenia,string imie,string nazwisko){
+        this->rok_urodzenia=rok_urodzenia;
+        this->imie=imie;
+        this->nazwisko=nazwisko;
+    }
+
+    string getImie(){
+        return imie;
+    }
+    void wyswietl(){
+        cout<<imie<<" "<<rok_urodzenia<<" "<<nazwisko<<endl;
+    }
+
+};
+
+class Klasa2{
+private:
+    string name;
+public:
+    Klasa2(string klasa){
+        for(int i=0;i< size(klasa);i++){
+            name+=klasa[size(klasa)-i-1];
+        }
+
+    }
+    void wyswietl(){
+        cout<<name;
+    }
+};
+
+int main() {
+    Klasa1 oryginal(7,"Piotr","jakistam");
+    oryginal.wyswietl();
+    Klasa2 zamiana(oryginal.getImie());
+    zamiana.wyswietl();
+}
